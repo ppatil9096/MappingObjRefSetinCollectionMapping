@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="com.pravin.hibernate.Question" table="collection_mapping_objectref_set">
+		<id name="qid">
+			<generator class="increment"></generator>
+		</id>
+		<property name="questin"></property>
+		<set name="answers" cascade="all">
+			<key column="ans"></key>
+			<one-to-many class="com.pravin.hibernate.Answer" />
+		</set>
+	</class>
+	<class name="com.pravin.hibernate.Answer" table="answer_collection_mapping_objectref_set">
+		<id name="aid">
+			<generator class="increment"></generator>
+		</id>
+		<property name="givenAnswer"></property>
+		<property name="submittedBy"></property>
+	</class>
+</hibernate-mapping>
